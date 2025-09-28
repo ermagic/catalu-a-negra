@@ -36,15 +36,21 @@ def update_visit_date(visit_id, new_date):
     except Exception as e:
         st.error(f"Error al actualizar la fecha: {e}")
 
-# --- ¡NUEVA FUNCIÓN! ---
 def update_visit_rating(visit_id, new_rating):
-    """
-    Actualiza la puntuación de una visita existente.
-    """
     try:
         supabase.table('planned_visits').update({'rating': new_rating}).eq('id', visit_id).execute()
     except Exception as e:
         st.error(f"Error al actualizar la puntuación: {e}")
+
+# --- ¡NUEVA FUNCIÓN! ---
+def update_visit_status(visit_id, new_status):
+    """
+    Actualiza el estado de una visita ('Planeado' o 'Visitado').
+    """
+    try:
+        supabase.table('planned_visits').update({'status': new_status}).eq('id', visit_id).execute()
+    except Exception as e:
+        st.error(f"Error al actualizar el estado: {e}")
 
 def delete_visit(visit_id):
     try:

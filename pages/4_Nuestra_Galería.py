@@ -18,12 +18,10 @@ st.markdown("---")
 # --- SECCIÓN PARA SUBIR FOTOS ---
 st.header("Añadir una nueva foto")
 
-# Obtenemos los casos del planificador para el menú desplegable
 planned_visits = get_planned_visits()
 if not planned_visits:
     st.warning("Primero debéis añadir casos al 'Planificador de Ruta' para poder subir fotos.")
 else:
-    # Creamos una lista de nombres de casos para el selector
     planned_crime_names = [visit['crime_name'] for visit in planned_visits]
     
     selected_crime = st.selectbox("1. ¿A qué caso pertenece esta foto?", planned_crime_names)
@@ -32,14 +30,12 @@ else:
 
     if st.button("Subir Foto", disabled=(not uploaded_file or not selected_crime)):
         with st.spinner("Subiendo foto... ¡esto puede tardar un poco!"):
-            # 1. Subir la foto al Storage de Supabase
             photo_url = upload_photo(uploaded_file)
             
             if photo_url:
-                # 2. Guardar el registro en la tabla de la base de datos
                 add_photo_record(selected_crime, photo_url, caption)
                 st.success("¡Foto subida y guardada con éxito!")
-                st.rerun() # Recargamos para ver la nueva foto en la galería
+                st.rerun()
             else:
                 st.error("No se pudo subir la foto. Inténtalo de nuevo.")
 
@@ -52,7 +48,6 @@ all_photos = get_photos()
 if not all_photos:
     st.info("La galería está vacía. ¡Subid vuestra primera foto!")
 else:
-    # Agrupamos las fotos por caso
     photos_by_crime = {}
     for photo in all_photos:
         crime_name = photo['crime_name']
@@ -60,11 +55,10 @@ else:
             photos_by_crime[crime_name] = []
         photos_by_crime[crime_name].append(photo)
     
-    # Mostramos las fotos agrupadas
     for crime_name, photos in photos_by_crime.items():
         with st.expander(f"Caso: {crime_name} ({len(photos)} fotos)"):
-            # Creamos columnas para mostrar hasta 3 fotos por fila
             cols = st.columns(3)
             for i, photo in enumerate(photos):
                 with cols[i % 3]:
-                    st.image(photo['photo_url'], caption=photo['caption'] or "")
+                    # --- ARREGLO AQUÍ ---
+                    st.image(photo['photo_url'], caption=photo['caption'] or "", use_container_width=True)

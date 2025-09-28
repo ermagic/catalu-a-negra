@@ -1,10 +1,9 @@
-# pages/1_🗺️_Mapa_del_Crimen.py
-
 import streamlit as st
 import pandas as pd
 from data import get_crime_data
-import folium  # La nueva librería de mapas
-from streamlit_folium import st_folium # El componente para mostrar el mapa en Streamlit
+import folium
+from streamlit_folium import st_folium
+from folium.plugins import MarkerCluster # Importamos la herramienta de clustering
 
 # --- CONFIGURACIÓN Y VERIFICACIÓN DE LOGIN ---
 st.set_page_config(
@@ -29,7 +28,7 @@ def load_data_as_dataframe():
 
 # --- TÍTULO DE LA PÁGINA ---
 st.title("🗺️ Mapa del Crimen Interactivo")
-st.markdown("Pulsa sobre cada pin para ver los detalles del caso. ¡Perfecto para explorar desde el móvil!")
+st.markdown("Explora el mapa. Los iconos se agrupan al alejar el zoom. Pulsa sobre cada pin para ver los detalles.")
 st.markdown("---")
 
 # --- CARGA Y LÓGICA DEL MAPA ---
@@ -38,30 +37,35 @@ df_crimes = load_data_as_dataframe()
 if not df_crimes.empty:
     
     # 1. Crear el mapa base, centrado en Cataluña
-    # Coordenadas aproximadas del centro de Cataluña
     map_center = [41.8781, 1.7856]
-    m = folium.Map(location=map_center, zoom_start=8)
+    m = folium.Map(location=map_center, zoom_start=8, tiles="CartoDB positron")
 
-    # 2. Añadir un pin (marcador) por cada caso
+    # 2. Crear un grupo de marcadores (cluster)
+    marker_cluster = MarkerCluster().add_to(m)
+
+    # 3. Añadir un pin por cada caso AL CLUSTER
     for index, row in df_crimes.iterrows():
         
-        # Creamos el texto que aparecerá en la ventana emergente (popup)
+        # Creamos el contenido HTML para la ventana emergente
+        # Ahora incluye una imagen en miniatura
         popup_html = f"""
-        <h4>{row['nombre']}</h4>
-        <p><b>Ubicación:</b> {row['ubicacion_principal']}</p>
-        <p>{row['resumen_corto']}</p>
+        <div style="width: 250px;">
+            <h5 style="margin-bottom: 5px;">{row['nombre']}</h5>
+            <img src="{row['foto_url_archivo']}" width="100%" style="border-radius: 5px;"/>
+            <p style="font-size: 12px; margin-top: 10px;"><b>Ubicación:</b> {row['ubicacion_principal']}</p>
+        </div>
         """
         
-        # Creamos el marcador y lo añadimos al mapa
+        # Creamos el marcador y lo añadimos al grupo
         folium.Marker(
             location=[row['lat'], row['lon']],
-            popup=folium.Popup(popup_html, max_width=300),
-            tooltip=row['nombre'], # Texto que aparece al pasar el ratón por encima (en ordenador)
-            icon=folium.Icon(color='red', icon='info-sign')
-        ).add_to(m)
+            popup=folium.Popup(popup_html),
+            tooltip=row['nombre'],
+            icon=folium.Icon(color='darkred', icon='-')
+        ).add_to(marker_cluster)
 
-    # 3. Mostrar el mapa en Streamlit
-    st_folium(m, height=450, use_container_width=True)
+    # 4. Mostrar el mapa en Streamlit
+    st_folium(m, height=500, use_container_width=True, returned_objects=[])
 
 else:
     st.error("No se pudieron cargar los datos de los crímenes para mostrar el mapa.")

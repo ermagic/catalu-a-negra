@@ -2,79 +2,80 @@
 
 def get_crime_data():
     """
-    Esta función contiene todos los datos de los casos en una lista de diccionarios.
-    Es un método mucho más robusto que un archivo CSV.
+    Contiene todos los datos de los casos. Ahora incluye una galería de fotos de archivo.
     """
     casos = [
+        # --- CASOS EXISTENTES ---
         {
-            "id": 1,
-            "nombre": "El celador de Olot",
-            "resumen_corto": "Joan Vila, un auxiliar de geriatría en La Caritat de Olot, confesó haber asesinado a 11 ancianos entre 2009 y 2010.",
+            "id": 1, "nombre": "El celador de Olot", "resumen_corto": "Joan Vila, un auxiliar de geriatría en La Caritat de Olot, confesó haber asesinado a 11 ancianos entre 2009 y 2010.",
             "cronica_detallada": "Conocido como 'El Ángel de la Muerte', Joan Vila Dilmé trabajaba en el geriátrico La Caritat. Durante meses, administró cócteles de fármacos o productos cáusticos a los residentes, causando su muerte. Inicialmente, sus crímenes pasaron desapercibidos, atribuidos a la avanzada edad de las víctimas. Fue la muerte de una residente, Paquita Gironès, con indicios extraños, la que destapó el horror. Vila confesó los crímenes alegando que lo hacía 'para evitarles el sufrimiento', una versión que los psicólogos desmontaron, revelando un perfil de asesino metódico con una profunda necesidad de control y protagonismo.",
-            "fecha_suceso": 2010,
-            "ubicacion_principal": "Geriátrico La Caritat, Olot",
-            "lat": 42.176944,
-            "lon": 2.485556,
-            "provincia": "Girona",
-            "status": "Resuelto",
-            "tags": "Asesino en serie, Urbano",
-            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elperiodico.com%2Fes%2Fextra%2F20221126%2Fcelador-olot-joan-vila-asesino-serie-carceles-catalanas-78810330&psig=AOvVaw21Gj_Fq-lUjLd2s0Q5Yx5d&ust=1727600889241000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNi-gJ3h04MDFQAAAAAdAAAAABAE"
+            "fecha_suceso": 2010, "ubicacion_principal": "Geriátrico La Caritat, Olot", "lat": 42.176944, "lon": 2.485556, "provincia": "Girona", "status": "Resuelto", "tags": "Asesino en serie, Urbano",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elperiodico.com%2Fes%2Fextra%2F20221126%2Fcelador-olot-joan-vila-asesino-serie-carceles-catalanas-78810330&psig=AOvVaw21Gj_Fq-lUjLd2s0Q5Yx5d&ust=1727600889241000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNi-gJ3h04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=Geri%C3%A1trico+La+Caritat", "https://placehold.co/600x400/EEE/31343C?text=Recorte+de+Prensa", "https://placehold.co/600x400/EEE/31343C?text=Joan+Vila"]
         },
         {
-            "id": 2,
-            "nombre": "El crimen de la Guardia Urbana",
-            "resumen_corto": "El cuerpo calcinado del agente Pedro R. aparece en el pantano de Foix, destapando un triángulo amoroso mortal.",
+            "id": 2, "nombre": "El crimen de la Guardia Urbana", "resumen_corto": "El cuerpo calcinado del agente Pedro R. aparece en el pantano de Foix, destapando un triángulo amoroso mortal.",
             "cronica_detallada": "El caso, que conmocionó a la opinión pública, reveló una red de relaciones tóxicas, engaños y violencia dentro del cuerpo policial de Barcelona. Rosa Peral, Pedro R. y Albert López formaban un triángulo amoroso que culminó con el asesinato de Pedro. Las pruebas demostraron que Rosa y Albert planificaron y ejecutaron el crimen en la casa que ella compartía con la víctima. El juicio fue uno de los más mediáticos de los últimos años, con acusaciones cruzadas entre los dos amantes, quienes finalmente fueron condenados por asesinato.",
-            "fecha_suceso": 2017,
-            "ubicacion_principal": "Pantano de Foix, Castellet i la Gornal",
-            "lat": 41.258,
-            "lon": 1.61,
-            "provincia": "Barcelona",
-            "status": "Resuelto",
-            "tags": "Pasional, Policial",
-            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lavanguardia.com%2Fpeliculas-series%2Fpersonas%2Frosa-peral-1845199&psig=AOvVaw0_1uQoB3Z8f4R5d9E6r7rJ&ust=1727600936384000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJDftbDn04MDFQAAAAAdAAAAABAE"
+            "fecha_suceso": 2017, "ubicacion_principal": "Pantano de Foix, Castellet i la Gornal", "lat": 41.258, "lon": 1.61, "provincia": "Barcelona", "status": "Resuelto", "tags": "Pasional, Policial",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lavanguardia.com%2Fpeliculas-series%2Fpersonas%2Frosa-peral-1845199&psig=AOvVaw0_1uQoB3Z8f4R5d9E6r7rJ&ust=1727600936384000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJDftbDn04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=Rosa+Peral", "https://placehold.co/600x400/EEE/31343C?text=Coche+Calcinado", "https://placehold.co/600x400/EEE/31343C?text=Pantano+de+Foix"]
         },
         {
-            "id": 3,
-            "nombre": "El asesinato de Helena Jubany",
-            "resumen_corto": "En 2001, el cuerpo de la bibliotecaria Helena Jubany fue encontrado en un patio de Sabadell. El caso sigue sin resolverse.",
+            "id": 3, "nombre": "El asesinato de Helena Jubany", "resumen_corto": "En 2001, el cuerpo de la bibliotecaria Helena Jubany fue encontrado en un patio de Sabadell. El caso sigue sin resolverse.",
             "cronica_detallada": "Helena fue arrojada inconsciente, pero aún con vida, desde la azotea de un edificio. La investigación se centró en su círculo de amigos de la Unió Excursionista de Sabadell. Una amiga, Montse Careta, fue detenida como principal sospechosa y se suicidó en prisión preventiva, defendiendo siempre su inocencia. Las pruebas caligráficas de los anónimos que Helena recibió días antes, que eran la clave del caso, han sido objeto de controversia durante años. A día de hoy, la familia de Helena sigue luchando por reabrir el caso, convirtiéndolo en un símbolo de la justicia pendiente en Cataluña.",
-            "fecha_suceso": 2001,
-            "ubicacion_principal": "C/ Calvet d'Estrella 48, Sabadell",
-            "lat": 41.5458,
-            "lon": 2.106,
-            "provincia": "Barcelona",
-            "status": "Sin resolver",
-            "tags": "Misterio, Urbano",
-            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ccma.cat%2F324%2Fqui-va-matar-helena-jubany-les-claus-dun-crim-sense-resoldre-20-anys-despres%2Fnoticia%2F3135323%2F&psig=AOvVaw314Rj_bJ8f1d8m9s6w1x8x&ust=1727601007797000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLjG38nn04MDFQAAAAAdAAAAABAE"
+            "fecha_suceso": 2001, "ubicacion_principal": "C/ Calvet d'Estrella 48, Sabadell", "lat": 41.5458, "lon": 2.106, "provincia": "Barcelona", "status": "Sin resolver", "tags": "Misterio, Urbano",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ccma.cat%2F324%2Fqui-va-matar-helena-jubany-les-claus-dun-crim-sense-resoldre-20-anys-despres%2Fnoticia%2F3135323%2F&psig=AOvVaw314Rj_bJ8f1d8m9s6w1x8x&ust=1727601007797000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLjG38nn04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": []
         },
         {
-            "id": 4,
-            "nombre": "La Vampira del Raval",
-            "resumen_corto": "Enriqueta Martí, una mujer de la Barcelona de 1912, fue acusada de secuestrar y asesinar niños para crear pócimas.",
+            "id": 4, "nombre": "La Vampira del Raval", "resumen_corto": "Enriqueta Martí, una mujer de la Barcelona de 1912, fue acusada de secuestrar y asesinar niños para crear pócimas.",
             "cronica_detallada": "La crónica negra cuenta que Enriqueta raptaba niños para extraerles la sangre, las grasas y la médula ósea, con las que elaboraba pócimas que vendía a la burguesía. Fue detenida en su piso de la calle Ponent (hoy Joaquim Costa) donde encontraron a dos niñas. Aunque la prensa la pintó como un monstruo, investigaciones posteriores sugieren que la parte de los asesinatos en serie y la brujería pudo ser una exageración para ocultar una red de pederastia que salpicaba a las clases altas. Murió en prisión antes de ser juzgada.",
-            "fecha_suceso": 1912,
-            "ubicacion_principal": "C/ Joaquim Costa 29, Barcelona",
-            "lat": 41.3828,
-            "lon": -2.1687,
-            "provincia": "Barcelona",
-            "status": "Resuelto",
-            "tags": "Histórico, Asesino en serie",
-            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lavanguardia.com%2Flocal%2Fbarcelona%2F20220310%2F8110549%2Fenriqueta-marti-vampira-raval-realidad-mito.html&psig=AOvVaw2j_2yPjJ5b1k_G2g_3f8eZ&ust=1727601053427000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKjM59rn04MDFQAAAAAdAAAAABAE"
+            "fecha_suceso": 1912, "ubicacion_principal": "C/ Joaquim Costa 29, Barcelona", "lat": 41.3828, "lon": -2.1687, "provincia": "Barcelona", "status": "Resuelto", "tags": "Histórico, Asesino en serie",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lavanguardia.com%2Flocal%2Fbarcelona%2F20220310%2F8110549%2Fenriqueta-marti-vampira-raval-realidad-mito.html&psig=AOvVaw2j_2yPjJ5b1k_G2g_3f8eZ&ust=1727601053427000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKjM59rn04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": []
         },
         {
-            "id": 5,
-            "nombre": "El crimen de Tor",
-            "resumen_corto": "La disputa por la propiedad de la montaña de Tor culminó en 1995 con el asesinato de Josep Montané, 'Sansa'.",
+            "id": 5, "nombre": "El crimen de Tor", "resumen_corto": "La disputa por la propiedad de la montaña de Tor culminó en 1995 con el asesinato de Josep Montané, 'Sansa'.",
             "cronica_detallada": "Tor es un enclave de alta montaña cuya propiedad se convirtió en una guerra de intereses y contrabando. 'Sansa' intentó establecer una sociedad de propietarios, pero se encontró con una feroz oposición. Fue asesinado a tiros en su casa. Las sospechas recayeron sobre muchos, desde contrabandistas a vecinos rivales. Dos de ellos, Lázaro y 'El Palanca', fueron los principales acusados, pero finalmente absueltos por falta de pruebas. El crimen de Tor, popularizado por Carles Porta, es el epítome del 'true crime' rural, un western moderno en pleno Pirineo que sigue oficialmente sin culpable.",
-            "fecha_suceso": 1995,
-            "ubicacion_principal": "Tor, Alins",
-            "lat": 42.593,
-            "lon": 1.402,
-            "provincia": "Lleida",
-            "status": "Sin resolver",
-            "tags": "Rural, Misterio",
-            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.viajar.elperiodico.com%2Fdestinos%2Festas-son-casas-tor-pueblo-maldito-pirineos-donde-aun-vive-gente&psig=AOvVaw19lB9yJ7R9d_h6Q8f7w8A4&ust=1727601091599000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJjY9N3n04MDFQAAAAAdAAAAABAE"
+            "fecha_suceso": 1995, "ubicacion_principal": "Tor, Alins", "lat": 42.593, "lon": 1.402, "provincia": "Lleida", "status": "Sin resolver", "tags": "Rural, Misterio",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.viajar.elperiodico.com%2Fdestinos%2Festas-son-casas-tor-pueblo-maldito-pirineos-donde-aun-vive-gente&psig=AOvVaw19lB9yJ7R9d_h6Q8f7w8A4&ust=1727601091599000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJjY9N3n04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": [],
+        },
+        # --- NUEVOS CASOS AÑADIDOS ---
+        {
+            "id": 6, "nombre": "El crimen del pantano de Susqueda", "resumen_corto": "En agosto de 2017, la joven pareja formada por Marc y Paula desapareció mientras estaban de excursión en kayak. El caso sigue rodeado de misterio.",
+            "cronica_detallada": "Marc Hernández y Paula Mas, dos jóvenes de 23 y 21 años, fueron a pasar el día al pantano de Susqueda. Nunca regresaron. Su coche fue encontrado hundido en el pantano, y un mes después, sus cuerpos aparecieron flotando, con evidentes signos de violencia. La investigación ha sido un laberinto de pistas falsas, sospechosos y teorías. El único acusado, Jordi Magentí, fue puesto en libertad por falta de pruebas concluyentes. El entorno escarpado y de difícil acceso del pantano ha complicado enormemente la investigación, convirtiéndolo en uno de los crímenes sin resolver más mediáticos y enigmáticos de la historia reciente de Cataluña.",
+            "fecha_suceso": 2017, "ubicacion_principal": "Presa del Pantano de Susqueda", "lat": 41.9725, "lon": 2.5186, "provincia": "Girona", "status": "Sin resolver", "tags": "Misterio, Rural",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elperiodico.com%2Fes%2Fsociedad%2F20180226%2Fdetenido-asesinato-pareja-pantano-susqueda-6650638&psig=AOvVaw2g-W6p0f_0w6G7_8x3g7sE&ust=1727603126588000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOj-y_Tw04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=Vista+del+Pantano", "https://placehold.co/600x400/EEE/31343C?text=Kayak+de+las+v%C3%ADctimas", "https://placehold.co/600x400/EEE/31343C?text=Zona+de+b%C3%BAsqueda"]
+        },
+        {
+            "id": 7, "nombre": "El secuestro de la farmacéutica de Olot", "resumen_corto": "Maria Àngels Feliu fue secuestrada en 1992 y retenida durante 492 días en un zulo minúsculo, uno de los secuestros más largos de la historia de España.",
+            "cronica_detallada": "El 20 de noviembre de 1992, Maria Àngels Feliu fue abordada al salir de su farmacia en Olot. Fue retenida en un zulo húmedo y sin luz, de apenas 1,5 metros de ancho, en una casa de Sant Pere de Torelló. Sus secuestradores, una extraña mezcla de un policía local, un vigilante y amigos, cometieron innumerables errores, pero aun así lograron mantenerla cautiva durante más de 16 meses. Finalmente, fue liberada por uno de sus captores, Iñaki, quien la dejó en una gasolinera. La investigación posterior para desenmascarar a toda la banda fue compleja y se convirtió en un caso de estudio sobre la resistencia humana y la torpeza criminal.",
+            "fecha_suceso": 1992, "ubicacion_principal": "Farmacia Feliu, Olot", "lat": 42.1813, "lon": 2.4901, "provincia": "Girona", "status": "Resuelto", "tags": "Secuestro, Urbano",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rtve.es%2Fnoticias%2F20221118%2Fmaria-angels-feliu-secuestro-farmaceutica-olot-30-anos%2F2408996.shtml&psig=AOvVaw2_s0u4V6u-d_F3f9G5Z8w-&ust=1727603164964000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJj4h_Pw04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=Zulo+reconstruido", "https://placehold.co/600x400/EEE/31343C?text=Gasolinera+de+la+liberaci%C3%B3n", "https://placehold.co/600x400/EEE/31343C?text=Recorte+de+prensa"]
+        },
+        {
+            "id": 8, "nombre": "El asesino del Putxet", "resumen_corto": "En enero de 2003, un hombre asesinó a dos mujeres en un parking del barrio barcelonés del Putxet, generando una psicosis en la ciudad.",
+            "cronica_detallada": "El 11 de enero de 2003, apareció el cuerpo de María Àngels, una mujer de 49 años, en un parking de la calle Bertran. Había sido asesinada a martillazos. Ocho días después, en el mismo parking, otra mujer fue atacada, pero logró escapar y dar una descripción del agresor. La policía encontró el cuerpo de una segunda víctima, que había sido asesinada el día 20. Se desató el pánico en uno de los barrios más tranquilos de Barcelona. La investigación condujo a Juan José Pérez Rangel, un chico aparentemente normal, cuya coartada no se sostenía. Las pruebas de ADN y su confesión parcial confirmaron su autoría. Fue condenado por dos asesinatos y una tentativa.",
+            "fecha_suceso": 2003, "ubicacion_principal": "Parking C/ Bertran, Barcelona", "lat": 41.4063, "lon": 2.1444, "provincia": "Barcelona", "status": "Resuelto", "tags": "Asesino en serie, Urbano",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ccma.cat%2F324%2F20-anys-de-lassassi-del-putxet-el-doble-crim-que-va-sembrar-el-panic-a-barcelona%2Fnoticia%2F3199859%2F&psig=AOvVaw3K4e_0f8d_W7u_T9z9f_J-&ust=1727603195982000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLCHifTw04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=Entrada+del+Parking", "https://placehold.co/600x400/EEE/31343C?text=Retrato+robot+del+asesino", "https://placehold.co/600x400/EEE/31343C?text=Juan+Jos%C3%A9+P%C3%A9rez+Rangel"]
+        },
+        {
+            "id": 9, "nombre": "Atraco al Banco Central", "resumen_corto": "En mayo de 1981, un grupo de atracadores tomó más de 300 rehenes en la sede del Banco Central en Plaça Catalunya, en un asalto que duró 37 horas.",
+            "cronica_detallada": "Lo que empezó como un atraco se convirtió en una de las crisis de rehenes más largas y tensas de la historia de España. Un grupo de diez hombres armados irrumpió en el banco, alegando tener motivaciones políticas y exigiendo la liberación de varios golpistas del 23-F. Sin embargo, la investigación posterior reveló que el verdadero motivo era puramente económico. Durante 37 horas, mantuvieron a cientos de personas secuestradas mientras intentaban abrir las cajas de seguridad. La crisis terminó con el asalto de los GEO (Grupo Especial de Operaciones), que liberaron a los rehenes y detuvieron a los atracadores. El interior del banco quedó destrozado, y el suceso marcó un antes y un después en la gestión de crisis en España.",
+            "fecha_suceso": 1981, "ubicacion_principal": "Antiguo Banco Central, Pl. Catalunya, Barcelona", "lat": 41.386, "lon": 2.17, "provincia": "Barcelona", "status": "Resuelto", "tags": "Atraco, Histórico, Urbano",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lavanguardia.com%2Fvida%2F20210522%2F7472097%2Fatrac-banc-central-40-anys-relat-hores-angoixa.html&psig=AOvVaw2m9z_B-r_I-q-U-S_x_A8g&ust=1727603223011000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJC9q_bw04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": ["https://placehold.co/600x400/EEE/31343C?text=GEOs+en+la+azotea", "https://placehold.co/600x400/EEE/31343C?text=Interior+del+banco+tras+el+asalto", "https://placehold.co/600x400/EEE/31343C?text=Titular+de+prensa"]
+        },
+        {
+            "id": 10, "nombre": "El crimen de la bibliotecaria de Portbou", "resumen_corto": "En 1990, la bibliotecaria de Portbou, Consol, fue brutalmente asesinada. El caso se reabrió 30 años después gracias a los avances en ADN.",
+            "cronica_detallada": "Consol Cañellas, de 42 años, fue encontrada muerta en su apartamento de Portbou, con signos de una violencia extrema. La escena del crimen era dantesca, pero la investigación inicial no logró identificar al culpable, y el caso se cerró. Durante décadas, permaneció como una herida abierta en este pequeño pueblo fronterizo. Sin embargo, en 2020, los Mossos d'Esquadra reabrieron el caso gracias a nuevas técnicas de análisis de ADN. Las muestras recogidas en la escena del crimen en 1990 permitieron finalmente identificar a un sospechoso, un hombre que en la época de los hechos era un joven del pueblo. El caso es un ejemplo paradigmático de cómo la ciencia forense puede resolver crímenes décadas después de que se cometieran.",
+            "fecha_suceso": 1990, "ubicacion_principal": "Portbou, Girona", "lat": 42.426, "lon": 3.16, "provincia": "Girona", "status": "Resuelto", "tags": "Misterio, Rural, ADN",
+            "foto_url_archivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ccma.cat%2F324%2Fresolen-lassassinat-de-la-bibliotecaria-de-portbou-31-anys-despres-del-crim%2Fnoticia%2F3127820%2F&psig=AOvVaw0W8_s_r8Z_S_R8v_Y_z-o&ust=1727603254922000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNi3yPvw04MDFQAAAAAdAAAAABAE",
+            "galeria_fotos_archivo": []
         }
     ]
     return casos
